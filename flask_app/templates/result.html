@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/my_style.css') }}">
+    <title>Results Page</title>
+</head>
+<body>
+    <div>
+        <h1>Submitted Info</h1>
+        <div class="div1">
+            <span>
+                Name: {{ request.form['name'] }}
+            </span>
+            <span>
+                Dojo Location: {{ request.form['location'] }}
+            </span>
+            <span>
+                Favorite Language: {{ request.form['language'] }}
+            </span>
+            <span>
+                Comment: {{ request.form['comment'] }}
+            </span>
+            {# <span>
+                Radio Output: {{ session['font'] }}
+            </span>
+            <span>
+                Checkbox: {{ session['check'] }}
+            </span> #}
+        </div>
+        <a href="/"><button>Go Back</button></a>
+    </div>
+</body>
+</html>

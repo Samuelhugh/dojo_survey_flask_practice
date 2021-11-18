@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css')}}">
+    <title>Form Page</title>
+</head>
+<body>
+    <div>
+        <h2>Dojo Survey</h2>
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/process" method="post">
+            <div>
+                <label for="name">Your Name:</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="location">Dojo Location:</label>
+                <select name="location">
+                    <option value="">--Select Location--</option>
+                    {% for location in locations: %}
+                    <option value="{{ location }}">{{ location }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="language">Favorite Language:</label>
+                <select name="language">
+                    <option value="">--Select Language--</option>
+                    {% for language in languages: %}
+                    <option value="{{ language }}">{{ language }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label class="lb" for="comment">Comment (Optional)</label>
+                <textarea name="comment"></textarea>
+            </div>
+            <!-- <div>
+                <label for="bold">I Agree</label>
+                <input type="radio" checked='checked' name="bold" value="I Agree" id="bold">
+                <label for="normal">I Don't Agree</label>
+                <input type="radio" name="bold" value="I Don't Agree" id="normal">
+            </div> -->
+            <!-- <div>
+                <label for="accept">I agree</label>
+                <input type="checkbox" name="accept" id="accept" value="True">
+                <label for="do_not_accept">I do not agree</label>
+                <input type="checkbox" name="do_not_accept" id="do_not_accept" value="False">
+            </div> -->
+            <a href="/process"><button>Submit</button></a>
+        </form>
+    </div>
+</body>
+</html>

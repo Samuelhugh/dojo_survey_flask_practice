@@ -1,0 +1,28 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    background-color: beige;
+}
+
+h2 {
+    margin: 10px;
+    text-align: center;
+}
+
+form div {
+    margin: 5px;
+}
+
+.lb {
+    vertical-align: top;
+}
+
+a {
+    margin-left: 265px;
+}
